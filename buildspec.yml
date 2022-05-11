@@ -13,7 +13,7 @@ phases:
           - mvn clean install
       post_build:
         commands:
-          - echo build completed on 'date'
-    artifacts:
-      files:
-        - target/SeleniumTest-1.0-SNAPSHOT.jar
+#          - echo build completed on 'date'
+#    artifacts:
+#      files:
+#        - target/SeleniumTest-1.0-SNAPSHOT.jar
