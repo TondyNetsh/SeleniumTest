@@ -3,16 +3,17 @@ version: 0.2
 phases:
   install:
     runtime-version:
-    # java: corretto11
+      java: corretto11
     pre_build:
       commands:
-#        - echo nothing to do in the pre_build phase...
+        - echo nothing to do in the pre_build phase...
       build:
         commands:
+          - echo build started on 'date'
           - mvn clean install
       post_build:
         commands:
-#          - echo build completed on 'date'
+          - echo build completed on 'date'
     artifacts:
       files:
         - target/SeleniumTest-1.0-SNAPSHOT.jar
