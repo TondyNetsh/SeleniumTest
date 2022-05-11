@@ -2,25 +2,18 @@ version: 0.2
 
 phases:
   install:
-    commands:
-      - echo entered install phase...
-      - apt-get update - y
-    finally:
-      - echo this is always runs even if the update or install command fails
-  pre_build:
-    on-failure: ABORT | CONTINUE
-    commands:
-      - echo nothing to do in the pre_build phase...
-    build:
-      on-failure: ABORT | CONTINUE
+    runtime-version:
+      java: corretto11
+    pre_build:
       commands:
-        - echo entered install phase...
-        - echo build started on 'date'
-        - mvn clean install
-    post_build:
-      commands:
-        - echo entered the post_build phase....
-        - echo build completed on 'date'
-  artifacts:
-    files:
-      - target/SeleniumTest-1.0-SNAPSHOT.jar
+        - echo nothing to do in the pre_build phase...
+      build:
+        commands:
+          - echo build started on 'date'
+          - mvn clean install
+      post_build:
+        commands:
+          - echo build completed on 'date'
+    artifacts:
+      files:
+        - target/SeleniumTest-1.0-SNAPSHOT.jar
