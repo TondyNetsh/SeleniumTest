@@ -2,18 +2,24 @@ version: 0.2
 
 phases:
   install:
-    runtime-version:
-      java: corretto11
-    pre_build:
-      commands:
-        - echo nothing to do in the pre_build phase...
-      build:
-        commands:
-          - echo build started on 'date'
-          - mvn clean install
-      post_build:
-        commands:
-#          - echo build completed on 'date'
-#    artifacts:
-#      files:
-#        - target/SeleniumTest-1.0-SNAPSHOT.jar
+    commands:
+#      - apt-get update -y
+#      - apt-get install -y software-properties-common
+#      - add-apt-repository ppa:openjdk-r/ppa
+#      - apt-get update -y
+#      - apt-get install -y openjdk-8-jdk
+#      - apt-get install -y maven
+  pre_build:
+    commands:
+#      - echo Logging in to Amazon ECR...
+#      - $(aws ecr get-login --region $AWS_DEFAULT_REGION)
+  build:
+    commands:
+#      - docker run -d -p 4444:4444 -p 7900:7900 --shm-size="2g" selenium/standalone-firefox:4.1.4-20220427
+#      - echo Build started on `date`
+#      - echo Building the Docker image...
+      - mvn compile
+  post_build:
+    commands:
+  #    - echo Build completed on `date`
+#      - echo Pushing the Docker image...
