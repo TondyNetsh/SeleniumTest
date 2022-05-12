@@ -23,7 +23,7 @@ public class StepDefinitions2 {
     }
     @And("^close browser$")
     public void close_browser() throws Throwable {
-        driver.close();
+        //driver.close();
     }
 
 }
